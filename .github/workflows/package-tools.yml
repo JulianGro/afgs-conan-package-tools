@@ -17,9 +17,10 @@ jobs:
         python-version: "3.12"
     - name: "Build & Test"
       run: |
-        pip install setuptools 
-        pip install git+https://github.com/AnotherFoxGuy/conan-package-tools@conan2
-        pip install -e .[test]
-        python setup.py sdist
+        python3 -m venv .venv
+        .venv/bin/pip3 install setuptools 
+        .venv/bin/pip3 install git+https://github.com/AnotherFoxGuy/conan-package-tools@conan2
+        .venv/bin/pip3 install -e .[test]
+        .venv/bin/python3 setup.py sdist
         cd tests
-        pytest -vvv -s
+        ../.venv/bin/pytest -vvv -s
