@@ -18,6 +18,7 @@ jobs:
     - name: "Build & Test"
       run: |
         pip install setuptools 
+        pip install git+https://github.com/AnotherFoxGuy/conan-package-tools@conan2
         pip install -e .[test]
         python setup.py sdist
         cd tests
